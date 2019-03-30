@@ -24,6 +24,7 @@
 
 package org.sourcelab.kafka.webview.ui.configuration;
 
+import io.confluent.kafka.serializers.KafkaAvroDeserializer;
 import org.apache.kafka.common.serialization.ByteArrayDeserializer;
 import org.apache.kafka.common.serialization.BytesDeserializer;
 import org.apache.kafka.common.serialization.DoubleDeserializer;
@@ -102,6 +103,8 @@ public final class DataLoaderConfig implements ApplicationRunner {
         defaultFormats.put("Integer", IntegerDeserializer.class.getName());
         defaultFormats.put("Long", LongDeserializer.class.getName());
         defaultFormats.put("String", StringDeserializer.class.getName());
+        defaultFormats.put("Avro", KafkaAvroDeserializer.class.getName());
+
 
         // Create if needed.
         for (final Map.Entry<String, String> entry : defaultFormats.entrySet()) {
